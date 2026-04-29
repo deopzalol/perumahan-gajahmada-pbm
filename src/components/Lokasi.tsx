@@ -1,42 +1,52 @@
-import { MapPin, Clock } from "lucide-react";
-
-const access = [
-  ["5 menit", "Tol Akses Kota"],
-  ["10 menit", "Pusat Perbelanjaan"],
-  ["7 menit", "Rumah Sakit"],
-  ["8 menit", "Sekolah Internasional"],
-  ["15 menit", "Bandara"],
-  ["12 menit", "Stasiun Kereta"],
-];
+import { MapPin, Phone } from "lucide-react";
+import brosur from "@/assets/brosur-1.jpg";
 
 export function Lokasi() {
+  const alamat = "Jl. Karang Jaya GMR RT/RW 001/001, Karang Jaya, Prabumulih Timur, Kota Prabumulih";
+  const mapsQuery = encodeURIComponent("Karang Jaya Prabumulih Timur Kota Prabumulih");
+
   return (
     <section id="lokasi" className="py-24 bg-[image:var(--gradient-soft)]">
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">Lokasi Strategis</span>
           <h2 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight text-foreground">
-            Pusat Kota dalam Genggaman
+            Berada di Jantung Prabumulih Timur
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Berada di jantung kota dengan akses mudah ke berbagai fasilitas penting sehari-hari.
+            Akses mudah ke pusat kota, sekolah, pasar, dan fasilitas umum lainnya.
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-4">
-            {access.map(([t, p]) => (
-              <div key={p} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border">
-                <Clock className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                <div>
-                  <div className="font-bold text-foreground">{t}</div>
-                  <div className="text-xs text-muted-foreground">{p}</div>
-                </div>
+
+          <div className="mt-8 space-y-4">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-card border border-border">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground shrink-0">
+                <MapPin className="h-5 w-5" />
+              </span>
+              <div>
+                <div className="font-bold text-foreground">Alamat Lokasi</div>
+                <p className="text-sm text-muted-foreground mt-1">{alamat}</p>
               </div>
-            ))}
+            </div>
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-card border border-border">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground shrink-0">
+                <Phone className="h-5 w-5" />
+              </span>
+              <div>
+                <div className="font-bold text-foreground">Kantor Pemasaran</div>
+                <p className="text-sm text-muted-foreground mt-1">0811 7875 234</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-2xl overflow-hidden shadow-[var(--shadow-card)] border border-border">
+            <img src={brosur} alt="Brosur Promo Gajah Mada Residence" className="w-full" loading="lazy" />
           </div>
         </div>
+
         <div className="relative aspect-square rounded-3xl overflow-hidden shadow-[var(--shadow-elegant)] bg-primary-deep">
           <iframe
-            title="Lokasi Perumahan Gajah Mada"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=106.8%2C-6.22%2C106.86%2C-6.18&layer=mapnik"
+            title="Lokasi Gajah Mada Residence — Prabumulih"
+            src={`https://www.google.com/maps?q=${mapsQuery}&output=embed`}
             className="absolute inset-0 h-full w-full"
             loading="lazy"
           />
@@ -46,8 +56,8 @@ export function Lokasi() {
                 <MapPin className="h-5 w-5" />
               </span>
               <div>
-                <div className="font-bold text-foreground">Perumahan Gajah Mada</div>
-                <div className="text-xs text-muted-foreground">Jl. Gajah Mada No. 88, Kota Mandiri</div>
+                <div className="font-bold text-foreground">Gajah Mada Residence</div>
+                <div className="text-xs text-muted-foreground">Karang Jaya, Prabumulih Timur</div>
               </div>
             </div>
           </div>

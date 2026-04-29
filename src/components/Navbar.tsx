@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Home, Menu, X } from "lucide-react";
+import { Home, Menu, X, MessageCircle } from "lucide-react";
+import { waLink, defaultReservasiMessage } from "@/lib/whatsapp";
 
 const links = [
   { label: "Beranda", href: "#beranda" },
@@ -27,8 +28,13 @@ export function Navbar() {
             </li>
           ))}
         </ul>
-        <a href="#kontak" className="hidden md:inline-flex items-center rounded-full bg-[image:var(--gradient-primary)] px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:opacity-90 transition">
-          Jadwalkan Survei
+        <a
+          href={waLink(defaultReservasiMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex items-center gap-2 rounded-full bg-[image:var(--gradient-primary)] px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-elegant)] hover:opacity-90 transition"
+        >
+          <MessageCircle className="h-4 w-4" /> Reservasi WA
         </a>
         <button className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? <X /> : <Menu />}
