@@ -1,4 +1,4 @@
-import heroImg from "@/assets/rumah-gajahmada.jpg";
+import heroImg from "@/assets/hero-rumah-biru.jpg";
 import { MapPin, ArrowRight, MessageCircle } from "lucide-react";
 import { waLink, defaultReservasiMessage } from "@/lib/whatsapp";
 
