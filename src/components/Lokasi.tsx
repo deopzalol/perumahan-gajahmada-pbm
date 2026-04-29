@@ -33,7 +33,7 @@ export function Lokasi() {
               </span>
               <div>
                 <div className="font-bold text-foreground">Kantor Pemasaran</div>
-                <p className="text-sm text-muted-foreground mt-1">0811 7875 234</p>
+                <p className="text-sm text-muted-foreground mt-1">Soleha Ulfasari — 0851 8541 7702</p>
               </div>
             </div>
           </div>
