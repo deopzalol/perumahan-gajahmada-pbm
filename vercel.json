@@ -1,9 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "app.config.ts",
-      "use": "@vercel/node"
-    }
-  ]
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
