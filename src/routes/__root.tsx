@@ -28,24 +28,36 @@ export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Gajah Mada Blue Homes is a website designed to showcase and promote residential properties." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Gajah Mada Blue Homes is a website designed to showcase and promote residential properties." },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { name: "theme-color", content: "#0c2340" },
+      { property: "og:site_name", content: "Gajah Mada Residence Prabumulih" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Gajah Mada Blue Homes is a website designed to showcase and promote residential properties." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/de982cb0-a621-4eb2-bfcd-f7c48eb090af/id-preview-703c4cda--36411b21-43e9-4b1d-b2e9-6009709cfdf0.lovable.app-1777448604279.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/de982cb0-a621-4eb2-bfcd-f7c48eb090af/id-preview-703c4cda--36411b21-43e9-4b1d-b2e9-6009709cfdf0.lovable.app-1777448604279.png" },
+      { property: "og:locale", content: "id_ID" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Gajah Mada Residence Prabumulih",
+          url: "https://perumahan-gajahmada-pbm.lovable.app",
+          telephone: "+62-851-8541-7702",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Jl. Karang Jaya GMR RT/RW 001/001",
+            addressLocality: "Prabumulih Timur",
+            addressRegion: "Sumatera Selatan",
+            addressCountry: "ID",
+          },
+        }),
       },
     ],
   }),
@@ -56,7 +68,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="id">
       <head>
         <HeadContent />
       </head>
