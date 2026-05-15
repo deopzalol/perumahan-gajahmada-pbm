@@ -18,8 +18,11 @@ export function Hero() {
           <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium backdrop-blur">
             <MapPin className="h-3.5 w-3.5" /> Prabumulih Timur, Kota Prabumulih
           </span>
-          <h1 className="mt-6 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+          <h1 className="mt-6 text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
             Gajah Mada <span className="text-[oklch(0.85_0.12_230)]">Residence</span>
+            <span className="block mt-2 text-2xl sm:text-3xl md:text-4xl font-semibold text-white/90">
+              Perumahan Modern di Prabumulih
+            </span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">
             Hunian modern, aman & strategis. Harga promo mulai{" "}
