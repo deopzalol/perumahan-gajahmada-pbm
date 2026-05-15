@@ -4,13 +4,13 @@ import { waLink, defaultReservasiMessage } from "@/lib/whatsapp";
 
 export function Hero() {
   return (
-    <section id="beranda" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="beranda" className="relative min-h-screen flex items-center overflow-hidden bg-primary-deep">
       <img
         src={heroImg}
         alt="Rumah Gajah Mada Residence — hunian modern tipe 36"
         width={1920}
         height={1080}
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-contain md:object-cover object-center"
       />
       <div className="absolute inset-0 bg-[image:var(--gradient-hero)]" />
       <div className="relative container mx-auto px-6 py-32 text-primary-foreground">
