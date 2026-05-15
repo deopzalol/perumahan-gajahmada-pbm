@@ -3,7 +3,8 @@ import brosur from "@/assets/brosur-1.jpg";
 
 export function Lokasi() {
   const alamat = "Jl. Karang Jaya GMR RT/RW 001/001, Karang Jaya, Prabumulih Timur, Kota Prabumulih";
-  const mapsQuery = encodeURIComponent("Karang Jaya Prabumulih Timur Kota Prabumulih");
+  const mapsPinUrl = "https://maps.app.goo.gl/3vHf6RG1A75BBX3d9?g_st=ac";
+  const mapsQuery = encodeURIComponent("Gajah Mada Residence Karang Jaya Prabumulih Timur");
 
   return (
     <section id="lokasi" className="py-24 bg-[image:var(--gradient-soft)]">
