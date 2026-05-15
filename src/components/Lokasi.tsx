@@ -56,10 +56,18 @@ export function Lokasi() {
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[image:var(--gradient-primary)] text-primary-foreground">
                 <MapPin className="h-5 w-5" />
               </span>
-              <div>
+              <div className="flex-1 min-w-0">
                 <div className="font-bold text-foreground">Gajah Mada Residence</div>
                 <div className="text-xs text-muted-foreground">Karang Jaya, Prabumulih Timur</div>
               </div>
+              <a
+                href={mapsPinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground hover:opacity-90 transition"
+              >
+                Buka Pin
+              </a>
             </div>
           </div>
         </div>
