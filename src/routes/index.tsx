@@ -1,55 +1,67 @@
 import { createFileRoute } from "@tanstack/react-router";
+
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Tipe } from "@/components/Tipe";
 import { Fasilitas } from "@/components/Fasilitas";
+import { FAQ } from "@/components/FAQ";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Lokasi } from "@/components/Lokasi";
 import { Kontak } from "@/components/Kontak";
-
-const SITE_URL = "https://perumahan-gajahmada-pbm.lovable.app";
-const TITLE = "Perumahan Gajah Mada Prabumulih — Rumah Type 36 Mulai 166 Juta";
-const DESCRIPTION =
-  "Perumahan murah di Prabumulih: Gajah Mada Residence Type 36 di Karang Jaya, Prabumulih Timur. Harga promo mulai Rp 166 Juta, angsuran 1 jutaan/bulan, SHM, dekat pusat kota.";
+import heroImg from "@/assets/hero-rumah-biru.jpg";
+import {
+  FAQ_ITEMS,
+  PROPERTY_ADDRESS,
+  PROPERTY_CITY,
+  PROPERTY_COUNTRY,
+  PROPERTY_DISTRICT,
+  PROPERTY_NAME,
+  PROPERTY_POSTAL_CODE,
+  PROPERTY_REGION,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_TITLE,
+} from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: TITLE },
-      { name: "description", content: DESCRIPTION },
+      { title: SITE_TITLE },
+      { name: "description", content: SITE_DESCRIPTION },
       {
         name: "keywords",
-        content:
-          "perumahan prabumulih, rumah dijual prabumulih, perumahan murah prabumulih, rumah type 36 prabumulih, perumahan gajah mada, gajah mada residence, rumah subsidi prabumulih, KPR prabumulih, rumah karang jaya, prabumulih timur",
+        content: SITE_KEYWORDS.join(", "),
       },
+      { name: "author", content: SITE_NAME },
       { name: "robots", content: "index, follow" },
       { name: "geo.region", content: "ID-SS" },
-      { name: "geo.placename", content: "Prabumulih" },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESCRIPTION },
-      { property: "og:url", content: SITE_URL },
+      { name: "geo.placename", content: PROPERTY_CITY },
+      { property: "og:title", content: SITE_TITLE },
+      { property: "og:description", content: SITE_DESCRIPTION },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "id_ID" },
-      { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: DESCRIPTION },
+      { property: "og:image", content: heroImg },
+      { name: "twitter:title", content: SITE_TITLE },
+      { name: "twitter:description", content: SITE_DESCRIPTION },
+      { name: "twitter:image", content: heroImg },
     ],
-    links: [{ rel: "canonical", href: SITE_URL }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "RealEstateListing",
-          name: "Gajah Mada Residence Type 36",
-          description: DESCRIPTION,
-          url: SITE_URL,
+          name: PROPERTY_NAME,
+          description: SITE_DESCRIPTION,
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Jl. Karang Jaya GMR RT/RW 001/001",
-            addressLocality: "Prabumulih Timur",
-            addressRegion: "Sumatera Selatan",
-            postalCode: "31111",
-            addressCountry: "ID",
+            streetAddress: PROPERTY_ADDRESS,
+            addressLocality: PROPERTY_DISTRICT,
+            addressRegion: PROPERTY_REGION,
+            postalCode: PROPERTY_POSTAL_CODE,
+            addressCountry: PROPERTY_COUNTRY,
           },
           offers: {
             "@type": "Offer",
@@ -57,6 +69,21 @@ export const Route = createFileRoute("/")({
             priceCurrency: "IDR",
             availability: "https://schema.org/InStock",
           },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQ_ITEMS.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
         }),
       },
     ],
@@ -72,8 +99,10 @@ function Index() {
         <Tipe />
         <Fasilitas />
         <Lokasi />
+        <FAQ />
         <Kontak />
       </main>
+      <FloatingWhatsApp />
     </div>
   );
 }

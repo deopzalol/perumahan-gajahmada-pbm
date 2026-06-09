@@ -4,7 +4,10 @@ import { waLink, defaultReservasiMessage } from "@/lib/whatsapp";
 
 export function Hero() {
   return (
-    <section id="beranda" className="relative min-h-[100svh] flex items-center overflow-hidden bg-primary-deep">
+    <section
+      id="beranda"
+      className="relative min-h-[100svh] flex items-center overflow-hidden bg-primary-deep"
+    >
       <img
         src={heroImg}
         alt="Perumahan Gajah Mada Residence Prabumulih — rumah type 36 modern"
@@ -26,8 +29,8 @@ export function Hero() {
           </h1>
           <p className="mt-6 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed">
             Hunian modern, aman & strategis. Harga promo mulai{" "}
-            <span className="font-bold text-white">Rp 166 Juta</span> dengan angsuran ringan
-            mulai 1 jutaan/bulan.
+            <span className="font-bold text-white">Rp 166 Juta</span> dengan angsuran ringan mulai 1
+            jutaan/bulan.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a

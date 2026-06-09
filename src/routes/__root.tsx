@@ -1,6 +1,14 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import {
+  CONTACT_PHONE_DISPLAY,
+  PROPERTY_ADDRESS,
+  PROPERTY_COUNTRY,
+  PROPERTY_DISTRICT,
+  PROPERTY_REGION,
+  SITE_NAME,
+} from "@/lib/site";
 
 function NotFoundComponent() {
   return (
@@ -30,7 +38,7 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { name: "theme-color", content: "#0c2340" },
-      { property: "og:site_name", content: "Gajah Mada Residence Prabumulih" },
+      { property: "og:site_name", content: SITE_NAME },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "id_ID" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -47,15 +55,21 @@ export const Route = createRootRoute({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Gajah Mada Residence Prabumulih",
-          url: "https://perumahan-gajahmada-pbm.lovable.app",
-          telephone: "+62-851-8541-7702",
+          name: SITE_NAME,
+          telephone: CONTACT_PHONE_DISPLAY,
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: CONTACT_PHONE_DISPLAY,
+            contactType: "sales",
+            areaServed: "ID",
+            availableLanguage: "id",
+          },
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Jl. Karang Jaya GMR RT/RW 001/001",
-            addressLocality: "Prabumulih Timur",
-            addressRegion: "Sumatera Selatan",
-            addressCountry: "ID",
+            streetAddress: PROPERTY_ADDRESS,
+            addressLocality: PROPERTY_DISTRICT,
+            addressRegion: PROPERTY_REGION,
+            addressCountry: PROPERTY_COUNTRY,
           },
         }),
       },

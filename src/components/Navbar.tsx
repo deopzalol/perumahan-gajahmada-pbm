@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Home, Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
+
+import { BrandLogo } from "@/components/BrandLogo";
 import { waLink, defaultReservasiMessage } from "@/lib/whatsapp";
 
 const links = [
@@ -7,6 +9,7 @@ const links = [
   { label: "Tipe Rumah", href: "#tipe" },
   { label: "Fasilitas", href: "#fasilitas" },
   { label: "Lokasi", href: "#lokasi" },
+  { label: "FAQ", href: "#faq" },
   { label: "Kontak", href: "#kontak" },
 ];
 
@@ -15,16 +18,15 @@ export function Navbar() {
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/60">
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#beranda" className="flex items-center gap-2 font-bold text-lg text-primary-deep">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[image:var(--gradient-primary)] text-primary-foreground shadow-[var(--shadow-glow)]">
-            <Home className="h-5 w-5" />
-          </span>
-          Gajah Mada
+        <a href="#beranda" className="text-primary-deep">
+          <BrandLogo />
         </a>
         <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/80">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="hover:text-primary transition-colors">{l.label}</a>
+              <a href={l.href} className="hover:text-primary transition-colors">
+                {l.label}
+              </a>
             </li>
           ))}
         </ul>
@@ -36,7 +38,11 @@ export function Navbar() {
         >
           <MessageCircle className="h-4 w-4" /> Reservasi WA
         </a>
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
+        <button
+          className="md:hidden text-foreground"
+          onClick={() => setOpen(!open)}
+          aria-label="Menu"
+        >
           {open ? <X /> : <Menu />}
         </button>
       </nav>
@@ -44,7 +50,11 @@ export function Navbar() {
         <div className="md:hidden border-t border-border bg-background">
           <ul className="flex flex-col p-6 gap-4 text-sm font-medium">
             {links.map((l) => (
-              <li key={l.href}><a href={l.href} onClick={() => setOpen(false)}>{l.label}</a></li>
+              <li key={l.href}>
+                <a href={l.href} onClick={() => setOpen(false)}>
+                  {l.label}
+                </a>
+              </li>
             ))}
           </ul>
         </div>

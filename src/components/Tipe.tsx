@@ -36,13 +36,15 @@ export function Tipe() {
     <section id="tipe" className="py-24 bg-[image:var(--gradient-soft)]">
       <div className="container mx-auto px-6">
         <div className="max-w-2xl">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Tipe Rumah</span>
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+            Tipe Rumah
+          </span>
           <h2 className="mt-3 text-4xl md:text-5xl font-bold text-foreground tracking-tight">
             Type 36 — Hunian Cerdas untuk Keluarga
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            Satu tipe rumah dengan kualitas konstruksi terbaik, desain modern, dan harga
-            yang sangat terjangkau.
+            Satu tipe rumah dengan kualitas konstruksi terbaik, desain modern, dan harga yang sangat
+            terjangkau.
           </p>
         </div>
 
@@ -69,9 +71,15 @@ export function Tipe() {
               </div>
               <h3 className="mt-2 text-2xl font-bold text-foreground">Type 36</h3>
               <div className="mt-6 grid grid-cols-3 gap-3 text-sm border-y border-border py-4">
-                <span className="flex items-center gap-1.5 text-muted-foreground"><Maximize className="h-4 w-4 text-primary" /> 36 m²</span>
-                <span className="flex items-center gap-1.5 text-muted-foreground"><Bed className="h-4 w-4 text-primary" /> 2 KT</span>
-                <span className="flex items-center gap-1.5 text-muted-foreground"><Bath className="h-4 w-4 text-primary" /> 1 KM</span>
+                <span className="flex items-center gap-1.5 text-muted-foreground">
+                  <Maximize className="h-4 w-4 text-primary" /> 36 m²
+                </span>
+                <span className="flex items-center gap-1.5 text-muted-foreground">
+                  <Bed className="h-4 w-4 text-primary" /> 2 KT
+                </span>
+                <span className="flex items-center gap-1.5 text-muted-foreground">
+                  <Bath className="h-4 w-4 text-primary" /> 1 KM
+                </span>
               </div>
               <a
                 href={waLink(pesan)}
@@ -108,7 +116,10 @@ export function Tipe() {
             </p>
             <div className="mt-6 space-y-3">
               {angsuran.map((a) => (
-                <div key={a.tahun} className="flex items-center justify-between rounded-xl bg-white/15 backdrop-blur px-5 py-4">
+                <div
+                  key={a.tahun}
+                  className="flex items-center justify-between rounded-xl bg-white/15 backdrop-blur px-5 py-4"
+                >
                   <span className="font-semibold">{a.tahun}</span>
                   <span className="text-lg font-bold">{a.nilai}</span>
                 </div>
@@ -116,7 +127,12 @@ export function Tipe() {
             </div>
           </div>
           <div className="rounded-3xl overflow-hidden shadow-[var(--shadow-card)] bg-card">
-            <img src={brosur} alt="Brosur Gajah Mada Residence — Denah Type 36 & Persyaratan" className="w-full h-full object-cover" loading="lazy" />
+            <img
+              src={brosur}
+              alt="Brosur Gajah Mada Residence — Denah Type 36 & Persyaratan"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>

@@ -1,4 +1,11 @@
 import { Phone, MessageCircle, MapPin } from "lucide-react";
+
+import {
+  CONTACT_NAME,
+  CONTACT_PHONE_DISPLAY,
+  PROPERTY_ADDRESS,
+  PROPERTY_DISTRICT,
+} from "@/lib/site";
 import { waLink, WA_NUMBER } from "@/lib/whatsapp";
 
 export function Kontak() {
@@ -18,7 +25,7 @@ export function Kontak() {
               </p>
               <div className="mt-8 space-y-3 text-sm">
                 <a href={`tel:+${WA_NUMBER}`} className="flex items-center gap-3 hover:text-white">
-                  <Phone className="h-4 w-4" /> +62 851-8541-7702 (Soleha Ulfasari)
+                  <Phone className="h-4 w-4" /> {CONTACT_PHONE_DISPLAY} ({CONTACT_NAME})
                 </a>
                 <a
                   href={waLink("Halo, saya ingin tanya tentang Gajah Mada Residence.")}
@@ -30,7 +37,9 @@ export function Kontak() {
                 </a>
                 <div className="flex items-start gap-3">
                   <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                  <span>Jl. Karang Jaya GMR RT/RW 001/001, Prabumulih Timur</span>
+                  <span>
+                    {PROPERTY_ADDRESS}, {PROPERTY_DISTRICT}
+                  </span>
                 </div>
               </div>
             </div>
@@ -41,11 +50,13 @@ export function Kontak() {
               </div>
               <h3 className="mt-5 text-2xl font-bold">Reservasi Cepat via WhatsApp</h3>
               <p className="mt-3 text-sm text-muted-foreground">
-                Klik tombol di bawah, Anda akan langsung diarahkan ke chat WhatsApp
-                marketing kami untuk informasi unit dan jadwal survei.
+                Klik tombol di bawah, Anda akan langsung diarahkan ke chat WhatsApp marketing kami
+                untuk informasi unit dan jadwal survei.
               </p>
               <a
-                href={waLink("Halo, saya ingin RESERVASI rumah Gajah Mada Residence Type 36 (Rp 166 Juta). Mohon info unit tersedia dan jadwal survei. Terima kasih.")}
+                href={waLink(
+                  "Halo, saya ingin RESERVASI rumah Gajah Mada Residence Type 36 (Rp 166 Juta). Mohon info unit tersedia dan jadwal survei. Terima kasih.",
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[image:var(--gradient-primary)] py-4 text-sm font-bold text-primary-foreground shadow-[var(--shadow-elegant)] hover:opacity-90 transition"
@@ -53,7 +64,7 @@ export function Kontak() {
                 <MessageCircle className="h-4 w-4" /> Reservasi Cepat via WhatsApp
               </a>
               <p className="mt-3 text-xs text-muted-foreground">
-                Marketing: <span className="font-semibold text-foreground">Soleha Ulfasari</span>
+                Marketing: <span className="font-semibold text-foreground">{CONTACT_NAME}</span>
               </p>
             </div>
           </div>
@@ -61,7 +72,9 @@ export function Kontak() {
       </div>
       <footer className="container mx-auto px-6 mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
         <p>© 2026 Gajah Mada Residence — Hunian Modern di Prabumulih.</p>
-        <p>Kantor Pemasaran: Soleha Ulfasari — 0851 8541 7702</p>
+        <p>
+          Kantor Pemasaran: {CONTACT_NAME} — {CONTACT_PHONE_DISPLAY}
+        </p>
       </footer>
     </section>
   );

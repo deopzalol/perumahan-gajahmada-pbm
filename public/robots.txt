@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://perumahan-gajahmada-pbm.lovable.app/sitemap.xml

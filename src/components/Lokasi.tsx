@@ -2,7 +2,8 @@ import { MapPin, Phone } from "lucide-react";
 import brosur from "@/assets/brosur-1.jpg";
 
 export function Lokasi() {
-  const alamat = "Jl. Karang Jaya GMR RT/RW 001/001, Karang Jaya, Prabumulih Timur, Kota Prabumulih";
+  const alamat =
+    "Jl. Karang Jaya GMR RT/RW 001/001, Karang Jaya, Prabumulih Timur, Kota Prabumulih";
   const mapsPinUrl = "https://maps.app.goo.gl/3vHf6RG1A75BBX3d9?g_st=ac";
   const mapsQuery = encodeURIComponent("Gajah Mada Residence Karang Jaya Prabumulih Timur");
 
@@ -10,7 +11,9 @@ export function Lokasi() {
     <section id="lokasi" className="py-24 bg-[image:var(--gradient-soft)]">
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider">Lokasi Strategis</span>
+          <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+            Lokasi Strategis
+          </span>
           <h2 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight text-foreground">
             Berada di Jantung Prabumulih Timur
           </h2>
@@ -34,13 +37,20 @@ export function Lokasi() {
               </span>
               <div>
                 <div className="font-bold text-foreground">Kantor Pemasaran</div>
-                <p className="text-sm text-muted-foreground mt-1">Soleha Ulfasari — 0851 8541 7702</p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Soleha Ulfasari — 0851 8541 7702
+                </p>
               </div>
             </div>
           </div>
 
           <div className="mt-8 rounded-2xl overflow-hidden shadow-[var(--shadow-card)] border border-border">
-            <img src={brosur} alt="Brosur Promo Gajah Mada Residence" className="w-full" loading="lazy" />
+            <img
+              src={brosur}
+              alt="Brosur Promo Gajah Mada Residence"
+              className="w-full"
+              loading="lazy"
+            />
           </div>
         </div>
 
