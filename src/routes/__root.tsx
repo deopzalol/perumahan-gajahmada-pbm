@@ -45,6 +45,15 @@ export const Route = createRootRoute({
     ],
     links: [
       {
+        rel: "icon",
+        type: "image/png",
+        href: "/logo-gajah-mada.png",
+      },
+      {
+        rel: "apple-touch-icon",
+        href: "/logo-gajah-mada.png",
+      },
+      {
         rel: "stylesheet",
         href: appCss,
       },
