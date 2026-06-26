@@ -7,6 +7,7 @@ const links = [
   { label: "Tipe Rumah", href: "#tipe" },
   { label: "Fasilitas", href: "#fasilitas" },
   { label: "Lokasi", href: "#lokasi" },
+  { label: "FAQ", href: "#faq" },
   { label: "Kontak", href: "#kontak" },
 ];
 

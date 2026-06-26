@@ -1,4 +1,7 @@
+import { useEffect } from "react";
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import Lenis from "lenis";
+import { ScrollReveal } from "../components/ScrollReveal";
 
 import appCss from "../styles.css?url";
 
@@ -81,5 +84,54 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  useEffect(() => {
+    // Initialize Lenis smooth scroll
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    });
+
+    let rafId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+
+    rafId = requestAnimationFrame(raf);
+
+    // Bind hash link clicks for smooth scrolling via Lenis
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest("a");
+      if (anchor && anchor.hash && anchor.origin === window.location.origin) {
+        e.preventDefault();
+        const element = document.querySelector(anchor.hash);
+        if (element) {
+          lenis.scrollTo(element, { offset: -80 }); // Offset for the fixed navbar
+          // Close mobile menu if open
+          window.location.hash = anchor.hash;
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAnchorClick);
+
+    return () => {
+      lenis.destroy();
+      cancelAnimationFrame(rafId);
+      document.removeEventListener("click", handleAnchorClick);
+    };
+  }, []);
+
+  return (
+    <>
+      <ScrollReveal />
+      <Outlet />
+    </>
+  );
 }

@@ -33,7 +33,7 @@ export function Fasilitas() {
   return (
     <section id="fasilitas" className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="reveal-on-scroll text-center max-w-2xl mx-auto">
           <span className="text-sm font-semibold text-primary uppercase tracking-wider">12 Keunggulan</span>
           <h2 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight text-foreground">
             Kenapa Harus Gajah Mada Residence?
@@ -46,7 +46,7 @@ export function Fasilitas() {
           {items.map((it, i) => (
             <div
               key={it.title}
-              className="group p-6 rounded-2xl border border-border bg-card hover:border-primary/40 hover:shadow-[var(--shadow-card)] transition-all"
+              className={`reveal-on-scroll reveal-delay-${(i % 3) * 100} group p-6 rounded-2xl border border-border bg-card hover:border-primary/40 hover:shadow-[var(--shadow-card)] transition-all`}
             >
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground shadow-[var(--shadow-glow)] group-hover:scale-110 transition-transform">
@@ -64,7 +64,7 @@ export function Fasilitas() {
           ))}
         </div>
 
-        <div className="mt-16 rounded-3xl overflow-hidden shadow-[var(--shadow-elegant)]">
+        <div className="reveal-on-scroll mt-16 rounded-3xl overflow-hidden shadow-[var(--shadow-elegant)]">
           <img src={keunggulan} alt="12 Keunggulan Rumah Gajah Mada Residence" className="w-full" loading="lazy" />
         </div>
       </div>
